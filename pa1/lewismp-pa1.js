@@ -69,6 +69,15 @@ function takeUserInput() {
 }
 
 
+function calculateMean(numbersInput) {
+    var sum;
+    for (var i=0; i<numbersInput.length; i++) {
+        sum += numbers[i];
+    }
+    return sum / numbersInput.length;
+}
+
+
 function inputDebug(input) {
     if (input == 'q') {
         console.log(`${input} is a valid input to quit`);
