@@ -59,7 +59,7 @@ function instructions() {
     console.log(`*                   Enter as many integers as you would like.                   *`);
     console.log(`*             When prompted for an integer, input 'q' to exit input.            *`);
     console.log(`*    Upon exiting input, the mean and median will be calculated and provided.   *`);
-    console.log(`*********************************************************************************`);
+    console.log(`*********************************************************************************\n`);
 }
 
 // Accepts user input and returns the value
