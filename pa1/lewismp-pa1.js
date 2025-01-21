@@ -99,7 +99,7 @@ function calculateMedian(numbersInput) {
     }
 }
 
-// 
+// Exit the mean/median program
 function exitProgram() {
     console.log(`\n\nPress any key to exit the program.`);
     readLineSync.question(``);
