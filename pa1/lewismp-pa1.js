@@ -48,7 +48,9 @@ if (debug) {
 }
 
 // Output the mean and median of the input integers
-console.log(`\nMean: ${calculateMean(numbersInput)}`);
+console.log(`\n\nMean/Median Calculations`);
+console.log(`=========================`);
+console.log(`Mean:   ${calculateMean(numbersInput)}`);
 console.log(`Median: ${calculateMedian(numbersInput)}`);
 
 // Exit the program
@@ -101,7 +103,7 @@ function calculateMedian(numbersInput) {
 
 // Exit the mean/median program
 function exitProgram() {
-    console.log(`\n\nPress any key to exit the program.`);
+    console.log(`\n\nPress ENTER to exit the program.`);
     readLineSync.question(``);
     process.exit();
 }
