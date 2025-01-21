@@ -51,6 +51,10 @@ if (debug) {
 console.log(`\nMean: ${calculateMean(numbersInput)}`);
 console.log(`Median: ${calculateMedian(numbersInput)}`);
 
+// Exit the program
+exitProgram();
+
+
 
 // Provide the program purpose (name) and relevant instructions for using the program
 function instructions() {
@@ -93,6 +97,13 @@ function calculateMedian(numbersInput) {
     else {
         return `ERROR: Median calculation failed`;
     }
+}
+
+// 
+function exitProgram() {
+    console.log(`\n\nPress any key to exit the program.`);
+    readLineSync.question(``);
+    process.exit();
 }
 
 // Debugging function to provide more information about the input value
