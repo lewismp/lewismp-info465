@@ -19,21 +19,21 @@ var numbersInput = [];
 // Display instructions for the program
 instructions();
 
-// Loop to gather valid integer inputs from user
+// Loop to gather inputs from user
 while (continueInput) {
     var input = takeUserInput();
 
-    // If debugging is enabled, return information about the value that was input
+    // If debugging is enabled, return information about the input
     if (debug) {
         inputDebug(input);
     }
 
-    // Check if the input is an integer or 'q' to quit
-    if (input == 'q') {
+    // Check if input is a valid integer or valid quit character; if not, display an error message
+    if (input == 'q' || input == 'Q') {
         continueInput = false;
     }
     else if (input != "" && input != undefined && input != null && Number.isInteger(Number(input))) {
-        numbersInput.push(parseInt(input));
+        numbersInput.push(Number(input));
     }
     else {
         console.log(`ERROR: "${input}" is not an integer. Submit a valid integer or 'q' to quit.`);
@@ -47,7 +47,7 @@ if (debug) {
     }
 }
 
-// Calculate the mean and median of the input integers
+// Output the mean and median of the input integers
 console.log(`Mean: ${calculateMean(numbersInput)}`);
 
 
@@ -62,13 +62,13 @@ function instructions() {
     console.log(`*********************************************************************************`);
 }
 
-
+// Accepts user input and returns the value
 function takeUserInput() {
     var input = readLineSync.question(`Enter an integer: `);
     return input;
 }
 
-
+// Calculate the mean of the input integers
 function calculateMean(numbersInput) {
     var sum;
     for (var i=0; i<numbersInput.length; i++) {
@@ -77,7 +77,7 @@ function calculateMean(numbersInput) {
     return sum / numbersInput.length;
 }
 
-
+// Debugging function to provide more information about the input value
 function inputDebug(input) {
     if (input == 'q') {
         console.log(`${input} is a valid input to quit`);
