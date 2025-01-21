@@ -9,7 +9,7 @@ Programming Assignment 1
 var readLineSync = require(`readline-sync`);
 
 //Turn debugging on/off (true = on, false = off)
-var debug = true;
+var debug = false;
 
 // Declare program variables
 var continueInput = true;
