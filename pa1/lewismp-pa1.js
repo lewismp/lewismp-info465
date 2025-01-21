@@ -48,7 +48,8 @@ if (debug) {
 }
 
 // Output the mean and median of the input integers
-console.log(`Mean: ${calculateMean(numbersInput)}`);
+console.log(`\nMean: ${calculateMean(numbersInput)}`);
+console.log(`Median: ${calculateMedian(numbersInput)}`);
 
 
 // Provide the program purpose (name) and relevant instructions for using the program
@@ -75,6 +76,23 @@ function calculateMean(numbersInput) {
         sum += numbersInput[i];
     }
     return sum / numbersInput.length;
+}
+
+// Calculate the median of the input integers
+function calculateMedian(numbersInput) {
+    numbersInput.sort();
+
+    if (numbersInput.length % 2 == 0) {
+        var middleIndex = numbersInput.length / 2;
+        return (numbersInput[middleIndex] + numbersInput[middleIndex - 1]) / 2;
+    }
+    else if (numbersInput.length % 2 == 1) {
+        var middleIndex = Math.floor(numbersInput.length / 2);
+        return numbersInput[middleIndex];
+    }
+    else {
+        return `ERROR: Median calculation failed`;
+    }
 }
 
 // Debugging function to provide more information about the input value
