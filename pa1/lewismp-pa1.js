@@ -70,7 +70,7 @@ function takeUserInput() {
 
 // Calculate the mean of the input integers
 function calculateMean(numbersInput) {
-    var sum;
+    var sum = 0;
     for (var i=0; i<numbersInput.length; i++) {
         sum += numbersInput[i];
     }
