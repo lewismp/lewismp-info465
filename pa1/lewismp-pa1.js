@@ -86,7 +86,7 @@ function calculateMean(numbersInput) {
 
 // Calculate the median of the input integers
 function calculateMedian(numbersInput) {
-    numbersInput.sort();
+    numbersInput = numbersInput.sort((a, b) => a - b);
 
     if (numbersInput.length % 2 == 0) {
         var middleIndex = numbersInput.length / 2;
