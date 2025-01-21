@@ -72,7 +72,7 @@ function takeUserInput() {
 function calculateMean(numbersInput) {
     var sum;
     for (var i=0; i<numbersInput.length; i++) {
-        sum += numbers[i];
+        sum += numbersInput[i];
     }
     return sum / numbersInput.length;
 }
