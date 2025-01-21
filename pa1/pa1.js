@@ -1,3 +1,9 @@
+/*
+Marshall Lewis
+INFO 465 - Dr. McGarry
+Programming Assignment 1
+1/21/2025
+*/
 const { createServer } = require('node:http');
 
 const hostname = '127.0.0.1';
