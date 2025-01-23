@@ -2,7 +2,7 @@
 Marshall Lewis
 INFO 465 - Dr. McGarry
 Programming Assignment 2
-01/21/2025
+01/23/2025
 */
 
 
@@ -32,6 +32,12 @@ function instructions() {
     console.log(`*********************************************************************************`);
     console.log(`*                   UPDATE THIS SECTION WITH SOMETHING USEFUL                   *`);
     console.log(`*********************************************************************************\n`);
+}
+
+// Accepts user input and returns the value
+function takeUserInput() {
+    var input = readLineSync.question(`Enter an integer: `);
+    return input;
 }
 
 // Exit the mean/median program
