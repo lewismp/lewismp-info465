@@ -47,7 +47,7 @@ if (debug) {
 }
 
 // Test the input numbers to see if any two numbers can be multiplied to create a third input number
-testProducts(numbersInput);
+checkForProducts(numbersInput);
 
 // Exit the program
 exitProgram();
@@ -74,38 +74,40 @@ function takeUserInput() {
 }
 
 // Test the input numbers to see if any two numbers can be multiplied to create a third input number
-function testProducts(numbersInput) {
+function checkForProducts(numbersInput) {
     // Declare a variable to track if required condition is met at least once
     var productIdentified = false;
-    var debugLoopCount = 1;
     
     // Sort the input numbers in ascending order, so products can be efficiently checked
     numbersInput = numbersInput.sort((a, b) => a - b);
     
+    // If debugging is enabled, initialize debug variables and display sorted array
+    if (debug) {
+        var debugLoopCount = 1;
+        arrayDebug(numbersInput);
+    }
+
+    // Display the results header
+    console.log(`\n\nResults`);
+    console.log(`========`);
+
     // Loop through all possible combinations of the input numbers to see if any two numbers can be multiplied to create a third number
-    for (var i=0; i<numbersInput.length-2; i++) { // Start at 0 to compare all indices
-        for (var j=1; j<numbersInput.length-1; j++) { // Start at 1 to avoid comparing the same index
-            for (var k=2; k<numbersInput.length; k++) { // Start at 2 to avoid comparing the same index
+    for (var i = 0; i < numbersInput.length - 2; i++) { // Start at 0 to compare all triplets, stop at length-2 to avoid arbitrary index comparisons
+        for (var j = i + 1; j < numbersInput.length - 1; j++) { // Start at i + 1 to avoid comparing the same indices, stop at length-1 to avoid arbitrary index comparisons
+            for (var k = j + 1; k < numbersInput.length; k++) { // Start at j + 1 to avoid comparing the same indices
                 
-                //If debugging is enabled, display the current loop and the numbers being compared
+                //If debugging is enabled, display the current loop and the indices being compared
                 if (debug) {
                     console.log(`\nLoop ${debugLoopCount}`)
                     console.log(`Index ${i}: ${numbersInput[i]}`);
                     console.log(`Index ${j}: ${numbersInput[j]}`);
                     console.log(`Index ${k}: ${numbersInput[k]}`);
                     debugLoopCount++;
-                    if (i==j || j==k || i==k) {
-                        console.log(`NOTICE: Index values match. Skipping comparison.`);
-                    }
                 }
                 
-                // If the loops are comparing the same indices, skip the comparison
-                if (i==j || j==k || i==k) {
-                    continue;
-                }
                 // If the product of the two numbers equals the third number and the loops are not comparing the same indices,
                 // display a message indicating the condition was met
-                else if (numbersInput[i] * numbersInput[j] == numbersInput[k]) {
+                if (numbersInput[i] * numbersInput[j] == numbersInput[k]) {
                     console.log(`Condition is met: ${numbersInput[i]} * ${numbersInput[j]} = ${numbersInput[k]}`);
                     productIdentified = true;
                 }
