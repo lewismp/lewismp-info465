@@ -10,7 +10,7 @@ Programming Assignment 2
 var readLineSync = require(`readline-sync`);
 
 //Turn debugging on/off (true = on, false = off)
-global.debug = true;
+global.debug = false;
 
 // Declare program variables
 var continueInput = true;
@@ -35,9 +35,10 @@ while (continueInput) {
     }
     else if (input != "" && input != undefined && input != null && Number.isInteger(Number(input))) {
         numbersInput.push(Number(input));
+        console.log(`"${input}" added`);
     }
     else {
-        console.log(`ERROR: "${input}" is not an integer. Submit a valid integer or 'q' to quit.`);
+        console.log(`ERROR: "${input}" is not an integer. Submit a valid integer or 'q' to quit`);
     }
 }
 
@@ -46,8 +47,18 @@ if (debug) {
     arrayDebug(numbersInput);
 }
 
+
+// Display the results header
+console.log(`\n\nResults`);
+console.log(`========`);
+
 // Test the input numbers to see if any two numbers can be multiplied to create a third input number
-checkForProducts(numbersInput);
+if (numbersInput.length > 2) {    
+    checkForProducts(numbersInput);
+}
+else {
+    console.log(`ERROR: At least three integers are required to check for products`);
+}
 
 // Exit the program
 exitProgram();
@@ -86,10 +97,6 @@ function checkForProducts(numbersInput) {
         var debugLoopCount = 1;
         arrayDebug(numbersInput);
     }
-
-    // Display the results header
-    console.log(`\n\nResults`);
-    console.log(`========`);
 
     // Loop through all possible combinations of the input numbers to see if any two numbers can be multiplied to create a third number
     for (var i = 0; i < numbersInput.length - 2; i++) { // Start at 0 to compare all triplets, stop at length-2 to avoid arbitrary index comparisons
