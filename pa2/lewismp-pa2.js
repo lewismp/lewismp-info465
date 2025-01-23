@@ -12,17 +12,47 @@ var readLineSync = require(`readline-sync`);
 //Turn debugging on/off (true = on, false = off)
 var debug = false;
 
+// Declare program variables
+var continueInput = true;
+var numbersInput = [];
 
-// ADD PROGRAM CODE HERE
-// ADD PROGRAM CODE HERE
-// ADD PROGRAM CODE HERE
-// ADD PROGRAM CODE HERE
-// ADD PROGRAM CODE HERE
-// ADD PROGRAM CODE HERE
-// ADD PROGRAM CODE HERE
+
+// Display instructions for the program
+instructions();
+
+// Loop to gather inputs from user
+while (continueInput) {
+    var input = takeUserInput();
+
+    // If debugging is enabled, return information about the input
+    if (debug) {
+        inputDebug(input);
+    }
+
+    // Check if input is a valid integer or valid quit character; if not, display an error message
+    if (input == 'q' || input == 'Q') {
+        continueInput = false;
+    }
+    else if (input != "" && input != undefined && input != null && Number.isInteger(Number(input))) {
+        numbersInput.push(Number(input));
+    }
+    else {
+        console.log(`ERROR: "${input}" is not an integer. Submit a valid integer or 'q' to quit.`);
+    }
+}
+
+// If debugging is enabled, display all values that are in the input array
+if (debug) {
+    for (var i=0; i<numbersInput.length; i++) {
+        console.log(`Index ${i}: ${numbersInput[i]}`);
+    }
+}
+
 
 // Exit the program
 exitProgram();
+
+
 
 
 // Provide the program purpose (name) and relevant instructions for using the program
