@@ -10,7 +10,7 @@ Programming Assignment 2
 var readLineSync = require(`readline-sync`);
 
 //Turn debugging on/off (true = on, false = off)
-var debug = true;
+global.debug = true;
 
 // Declare program variables
 var continueInput = true;
@@ -46,6 +46,9 @@ if (debug) {
     arrayDebug(numbersInput);
 }
 
+// Test the input numbers to see if any two numbers can be multiplied to create a third input number
+testProducts(numbersInput);
+
 // Exit the program
 exitProgram();
 
@@ -70,8 +73,50 @@ function takeUserInput() {
     return input;
 }
 
-function testProducts() {
+// Test the input numbers to see if any two numbers can be multiplied to create a third input number
+function testProducts(numbersInput) {
+    // Declare a variable to track if required condition is met at least once
+    var productIdentified = false;
+    var debugLoopCount = 1;
+    
+    // Sort the input numbers in ascending order, so products can be efficiently checked
+    numbersInput = numbersInput.sort((a, b) => a - b);
+    
+    // Loop through all possible combinations of the input numbers to see if any two numbers can be multiplied to create a third number
+    for (var i=0; i<numbersInput.length-2; i++) { // Start at 0 to compare all indices
+        for (var j=1; j<numbersInput.length-1; j++) { // Start at 1 to avoid comparing the same index
+            for (var k=2; k<numbersInput.length; k++) { // Start at 2 to avoid comparing the same index
+                
+                //If debugging is enabled, display the current loop and the numbers being compared
+                if (debug) {
+                    console.log(`\nLoop ${debugLoopCount}`)
+                    console.log(`Index ${i}: ${numbersInput[i]}`);
+                    console.log(`Index ${j}: ${numbersInput[j]}`);
+                    console.log(`Index ${k}: ${numbersInput[k]}`);
+                    debugLoopCount++;
+                    if (i==j || j==k || i==k) {
+                        console.log(`NOTICE: Index values match. Skipping comparison.`);
+                    }
+                }
+                
+                // If the loops are comparing the same indices, skip the comparison
+                if (i==j || j==k || i==k) {
+                    continue;
+                }
+                // If the product of the two numbers equals the third number and the loops are not comparing the same indices,
+                // display a message indicating the condition was met
+                else if (numbersInput[i] * numbersInput[j] == numbersInput[k]) {
+                    console.log(`Condition is met: ${numbersInput[i]} * ${numbersInput[j]} = ${numbersInput[k]}`);
+                    productIdentified = true;
+                }
+            }
+        }
+    }
 
+    // If no products were identified, display a message indicating the condition was not met
+    if (!productIdentified) {
+        console.log(`Condition was not met`);
+    }
 }
 
 // Exit the mean/median program
@@ -106,7 +151,9 @@ function inputDebug(input) {
 
 // If debugging is enabled, display all values that are in the array
 function arrayDebug(numbersInput) {
+    console.log(`\nArray Contents:`)
     for (var i=0; i<numbersInput.length; i++) {
         console.log(`Index ${i}: ${numbersInput[i]}`);
     }
+    console.log();
 }
