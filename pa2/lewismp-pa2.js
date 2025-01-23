@@ -30,7 +30,10 @@ function instructions() {
     console.log(`*********************************************************************************`);
     console.log(`*                             Product Result Checker                            *`);
     console.log(`*********************************************************************************`);
-    console.log(`*                   UPDATE THIS SECTION WITH SOMETHING USEFUL                   *`);
+    console.log(`*                   Enter as many integers as you would like.                   *`);
+    console.log(`*         When prompted for an integer, input 'q' or 'Q' to exit input.         *`);
+    console.log(`*   Upon exiting input, integers will be evaluated to see if any two integers   *`);
+    console.log(`*      can be multiplied together, creating another integer that was input.     *`);
     console.log(`*********************************************************************************\n`);
 }
 
