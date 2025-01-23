@@ -10,7 +10,7 @@ Programming Assignment 2
 var readLineSync = require(`readline-sync`);
 
 //Turn debugging on/off (true = on, false = off)
-var debug = false;
+var debug = true;
 
 // Declare program variables
 var continueInput = true;
@@ -43,11 +43,8 @@ while (continueInput) {
 
 // If debugging is enabled, display all values that are in the input array
 if (debug) {
-    for (var i=0; i<numbersInput.length; i++) {
-        console.log(`Index ${i}: ${numbersInput[i]}`);
-    }
+    arrayDebug(numbersInput);
 }
-
 
 // Exit the program
 exitProgram();
@@ -71,6 +68,10 @@ function instructions() {
 function takeUserInput() {
     var input = readLineSync.question(`Enter an integer: `);
     return input;
+}
+
+function testProducts() {
+
 }
 
 // Exit the mean/median program
@@ -100,5 +101,12 @@ function inputDebug(input) {
     }
     else {
         console.log(`${input} is not a valid integer`);
+    }
+}
+
+// If debugging is enabled, display all values that are in the array
+function arrayDebug(numbersInput) {
+    for (var i=0; i<numbersInput.length; i++) {
+        console.log(`Index ${i}: ${numbersInput[i]}`);
     }
 }
