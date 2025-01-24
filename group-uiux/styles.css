@@ -1,0 +1,154 @@
+/* 
+  styles.css 
+  External stylesheet for My University website (Homepage wireframe).
+  You can reference this file from multiple pages on your site.
+*/
+
+/* GLOBAL RESETS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER STYLES */
+header {
+  background-color: #2e3a4f;
+  color: #fff;
+  padding: 1em 2em;
+}
+
+.header-content h1 {
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+
+.header-content p {
+  margin-bottom: 0.5em;
+}
+
+/* NAVIGATION MENU */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5em 1em;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #3f5068;
+}
+
+/* MAIN CONTENT AREA */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 1.5em auto;
+  padding: 1em;
+}
+
+/* HERO SECTION */
+.hero {
+  background-color: #e4e4e4;
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-text {
+  max-width: 600px;
+  text-align: center;
+}
+
+.hero-text h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.hero-text p {
+  margin-bottom: 1em;
+}
+
+.hero-text button {
+  padding: 0.75em 1.5em;
+  background-color: #2e3a4f;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.hero-text button:hover {
+  background-color: #3f5068;
+}
+
+/* FEATURES SECTION */
+.features {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-top: 2em;
+  justify-content: center;
+}
+
+.feature-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  padding: 1em;
+  text-align: center;
+}
+
+.feature-box h3 {
+  margin-bottom: 0.75em;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  background-color: #2e3a4f;
+  color: #fff;
+  padding: 1em 0;
+  margin-top: auto;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  margin: 0 0.5em;
+}
+
+/* RESPONSIVE STYLES (OPTIONAL) */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    margin-top: 0.5em;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-box {
+    margin-bottom: 1em;
+  }
+}
