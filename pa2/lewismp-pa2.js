@@ -90,7 +90,7 @@ function checkForProducts(numbersInput) {
     var productIdentified = false;
     
     // Sort the input numbers in ascending order, so products can be efficiently checked
-    numbersInput = numbersInput.sort((a, b) => a - b);
+    numbersInput = numbersInput.sort((a, b) => Math.abs(a) - Math.abs(b));
     
     // If debugging is enabled, initialize debug variables and display sorted array
     if (debug) {
