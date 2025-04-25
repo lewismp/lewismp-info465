@@ -1,16 +1,5 @@
-/*
-Marshall Lewis
-INFO 465 - Dr. McGarry
-GitLab Pipeline Project
-04/24/2025
-*/
-
-
 // Import required modules
 var readLineSync = require(`readline-sync`);
-
-//Turn debugging on/off (true = on, false = off)
-global.debug = false;
 
 // Declare program variables
 var continueInput = true;
@@ -35,13 +24,6 @@ while (continueInput) {
     normalizedInput.push(input);d
 }
 
-// If debugging is enabled, display all values that are in the input array
-if (debug) {
-    for (var i=0; i<normalizedInput.length; i++) {
-        console.log(`Index ${i}: ${normalizedInput[i]}`);
-    }
-}
-
 // Check if the inputs are a palindrome
 for (var i=0; i<normalizedInput.length; i++) {
     var palindromeTest = normalizedInput[i];
@@ -54,8 +36,6 @@ for (var i=0; i<normalizedInput.length; i++) {
 
 // Exit the program
 exitProgram();
-
-
 
 // Provide the program purpose (name) and relevant instructions for using the program
 function instructions() {
